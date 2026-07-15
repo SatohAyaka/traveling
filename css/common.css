@@ -1,0 +1,282 @@
+/* 全体リセットと基本フォント設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    /* 背景が濃い色なので基本文字色は白 */
+}
+
+.container {
+    max-width: 500px;
+    /* スマホで見やすい横幅 */
+    margin: 0 auto;
+    padding: 20px 15px;
+    min-height: 100vh;
+}
+
+/* 案B：チケット風共通ヘッダー */
+.ticket-header {
+    display: flex;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ticket-stub {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.ticket-title {
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.ticket-main {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-number {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.trip-date {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ルート切り替えタブ */
+.route-switcher {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.route-tab {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.route-tab.active {
+    background: #fff;
+    color: #0f172a;
+    /* 選択時は文字を暗くして目立たせる */
+    border-color: #fff;
+}
+
+/* スケジュールタイムライン & すりガラス風カード */
+.timeline {
+    margin-bottom: 30px;
+}
+
+.card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.85);
+    /* 絶妙な不透明度85% */
+    backdrop-filter: blur(4px);
+    /* 高級感のあるすりガラス効果 */
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    color: #333;
+    /* カード内のテキストは読めるように濃い色 */
+}
+
+.card-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-main {
+    text-align: left;
+}
+
+/* css/common.css の該当部分を修正・追加 */
+
+/* 時間を表示する部分を少し幅広に修正（「〜10:00頃」でも崩れないように） */
+.time {
+    display: inline-block;
+    min-width: 75px;
+    /* 最低限の幅を確保 */
+    font-size: 15px;
+    font-weight: bold;
+    color: #007aff;
+    white-space: nowrap;
+    /* 途中で改行させない */
+}
+
+/* タイムラインの途中に置く切り替えボタンの見た目を調整 */
+.timeline .route-switcher {
+    margin: 25px 0;
+    padding: 0 5px;
+    z-index: 10;
+    position: relative;
+}
+
+/* プラン分岐中のカードだと分かりやすくするためのラベル（オプション） */
+.card.route-a::after,
+.card.route-b::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+/* プランAのカードの左端に細い青線を引く */
+.card.route-a:not(.route-b)::after {
+    background: #d8ace9;
+}
+
+/* プランBのカードの左端に細いオレンジ線を引く */
+.card.route-b:not(.route-a)::after {
+    background: #ace0e9;
+}
+
+.station {
+    font-size: 12px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.arrow {
+    font-size: 12px;
+    color: #999;
+    transition: transform 0.3s;
+}
+
+.card.active .arrow {
+    transform: rotate(180deg);
+    /* 開いた時に矢印を上に向ける */
+}
+
+/* タップして開くアコーディオン（詳細部分） */
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(245, 245, 245, 0.95);
+}
+
+.card.active .card-body {
+    max-height: 200px;
+    /* メモの長さに合わせて適宜調整 */
+}
+
+.memo-text {
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #444;
+    text-align: left;
+    border-top: 1px solid #eee;
+}
+
+
+/* 右下固定イラスト */
+.fixed-bg-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: auto;
+    z-index: 1;
+    /* カードの裏に回り込ませる */
+    pointer-events: none;
+    /* スワイプの邪魔をしない */
+}
+
+/* css/common.css の既存のボタンデザインを以下のように修正・追記します */
+
+/* 1. ページ移動ボタン共通のベースデザイン（統一感を出すための土台） */
+.nav-btn-top,
+.nav-btn-bottom {
+    display: inline-block;
+    /* 横幅を100%にせず、文字の長さに合わせる */
+    padding: 8px 16px;
+    /* 上下左右の余白を「戻る」のサイズに統一 */
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    /* 綺麗な丸角 */
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* 2. 【戻るボタン】のデザイン（左側配置） */
+.nav-top-container {
+    margin-bottom: 20px;
+    text-align: left;
+    /* 左端に配置 */
+}
+
+.nav-btn-top {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn-top:active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 3. 【進むボタン】のデザイン（右端配置・現在の色を維持） */
+.nav-container {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: right;
+    /* ✨ 右端に寄せる設定 */
+}
+
+.nav-btn-bottom {
+    background-color: #007aff;
+    /* 鮮やかなブルーをキープ */
+    color: white;
+    border: 1px solid rgba(0, 122, 255, 0.5);
+    /* 青いフチ */
+}
+
+.nav-btn-bottom:active {
+    background-color: #0056b3;
+    /* タップしたときは少し濃い青に */
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行のしおり - ログイン</title>
+    <!-- 📁 新しいフォルダ構成のパスに変更しています -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<!-- 1日目の紺色背景（day1-bg）をここでも使って全体のトーンを統一します -->
+
+<body class="day1-bg">
+    <div class="container login-container">
+
+        <!-- 旅のタイトル -->
+        <h1 class="login-title">MEMORIAL TRIP<br><span>~ 名古屋旅のしおり ~</span></h1>
+
+        <!-- すりガラス風のログインカード -->
+        <div class="card login-card">
+            <div class="login-card-inner">
+                <h2>PASSCODE</h2>
+                <p class="login-subtitle">Slack名をs入力してください</p>
+
+                <form id="loginForm">
+                    <input type="password" id="passwordInput" placeholder="パスワードを入力..." required>
+                    <button type="submit" class="nav-btn next-btn">送信</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 📁 新しいフォルダ構成のパスに変更 -->
+    <script src="js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+day,type,insert_after,title,description,transport,duration,route
+1,transport,d1-01,東京駅 ⇒ 京都駅,新幹線で快適移動！駅弁を食べよう,shinkansen,135分,route-a route-b
+1,transport,d1-02,京都駅 ⇒ ホテル,徒歩でまったり移動,walk,15分,route-a route-b
