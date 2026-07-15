@@ -1,0 +1,29 @@
+/* 1日目の背景（紺 ＋ パキッとした斜め四角模様） */
+body.day1-bg {
+    background-color: #1e3a8a;
+    /* ベースの紺色 */
+
+    background-image:
+        /* 🔼 上向きの三角を作る（不透明度3%の白） */
+        linear-gradient(45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
+        /* 🔽 下向きの三角を作って組み合わせる */
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.04) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.04) 75%),
+        /* 🎨 全体のグラデーション（紺〜ダークネイビー）を重ねる */
+        linear-gradient(135deg, rgba(154, 178, 243, 0.914) 0%, #5883e7 100%);
+
+    /* 📐 四角（ダイヤ）の大きさ。縦横を同じにすることで綺麗なひし形になります */
+    background-size: 30px 30px, 30px 30px, 30px 30px, 30px 30px, 100% 100%;
+
+    background-attachment: fixed;
+}
+
+.ticket-header {
+    background: #1b3b8d;
+}
+
+.ticket-stub {
+    background: #1b3b8d;
+    border-right: 2px dashed #7583ee;
+}

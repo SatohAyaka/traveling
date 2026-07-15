@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1日目のスケジュール</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/day1.css">
+</head>
+
+<body class="day1-bg">
+    <div class="container">
+
+        <!-- チケット風共通ヘッダー -->
+        <header class="ticket-header">
+            <div class="ticket-stub"><span class="ticket-title">DAY 1</span></div>
+            <div class="ticket-main">
+                <span class="day-number">7月18日（土）</span>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <!-- 共通の予定 -->
+            <div class="card route-a route-b" data-id="d1-01">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">9:30頃</span>
+                        <div class="title">集合</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-a route-b" data-id="d1-02">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">11:30頃</span>
+                        <div class="title">ホテルに荷物を預ける</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-a route-b" data-id="d1-03">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">12:00頃〜</span>
+                        <div class="title">昼食</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-a route-b" data-id="d1-04">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">14:00〜17:00</span>
+                        <div class="title">国立国会図書館</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <!-- ⇄ ここから分岐：ルート選択ボタン -->
+            <div class="route-switcher">
+                <button class="route-tab active" data-target="route-a">プランA：ホテルまったり</button>
+                <button class="route-tab" data-target="route-b">プランB：寄り道コース</button>
+            </div>
+
+            <!-- 🏠 プランA専用の予定 -->
+            <div class="card route-a" data-id="d1-a01">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">〜19:00頃</span>
+                        <div class="title">お土産購入、夕飯</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-a" data-id="d1-a02">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">19:00頃</span>
+                        <div class="title">チェックイン</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <!-- 🎒 プランB専用の予定（初期非表示） -->
+            <div class="card route-b" data-id="d1-b01" style="display: none;">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">〜19:00頃</span>
+                        <div class="title">観光</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-b" data-id="d1-b02" style="display: none;">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">〜20:30頃</span>
+                        <div class="title">お土産購入、夕飯</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card route-b" data-id="d1-b03" style="display: none;">
+                <div class="card-header">
+                    <div class="header-main">
+                        <span class="time">21:00頃</span>
+                        <div class="title">チェックイン</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <p class="memo-text">Loading...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-container">
+            <a href="day2.html" class="nav-btn-bottom">2日目へ進む ▶</a>
+        </div>
+    </div>
+    <script src="js/schedule.js"></script>
+</body>
+
+</html>
