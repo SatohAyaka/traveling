@@ -280,3 +280,70 @@ body {
     background-color: #0056b3;
     /* タップしたときは少し濃い青に */
 }
+
+/* ==========================================
+   移動手段カード（card-transport）の横並びデザイン
+   ========================================== */
+.card.card-transport {
+    background-color: rgba(240, 240, 240, 0.6);
+    /* 背景をかなり薄いグレーにする */
+    border: 1px dashed #ccc;
+    /* 境界線を目立たない点線にする */
+    box-shadow: none;
+    /* 影（シャドウ）を消して平坦にする */
+    margin: 8px auto;
+    /* 上下の余白を狭くする */
+    padding: 6px 12px;
+    /* 内側の上下余白をさらに狭くして極限までコンパクトに */
+    border-radius: 6px;
+    /* 角を少し丸める */
+    width: 90%;
+    /* 横幅を少し狭くして引っ込ませる */
+}
+
+/* 💡 カード内の文字情報を横並び（一行）にする */
+.card-transport .transport-info {
+    display: flex;
+    flex-wrap: nowrap;
+    /* 折り返さずに強制的に一行にする */
+    align-items: center;
+    /* 上下の高さを中央で揃える */
+    gap: 8px;
+    /* 各要素（タイトル、所要時間、説明）の間の隙間 */
+    overflow: hidden;
+    /* はみ出し防止 */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* 改行を防ぐ */
+}
+
+/* タイトル（文字サイズ等はそのまま、右側に少し余白を） */
+.card-transport .transport-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+    /* 横幅が狭くなっても潰れないようにする */
+}
+
+/* 所要時間 */
+.card-transport .transport-duration {
+    font-size: 0.8rem;
+    color: #777;
+    flex-shrink: 0;
+    /* 横幅が狭くなっても潰れないようにする */
+}
+
+/* 説明文（文字サイズ等はそのまま、横並びにするために margin をクリア） */
+.card-transport .transport-desc {
+    font-size: 0.8rem;
+    color: #888;
+    /* さらに少しだけ色を薄くして控えめに */
+    margin: 0;
+    /* 上に空いていた隙間をリセットして並行にする */
+    flex-shrink: 1;
+    /* スマホなどの狭い画面では、ここが優先的に縮んでスクロールやはみ出しを防ぐ */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 万が一長すぎる場合は「...」で省略 */
+}

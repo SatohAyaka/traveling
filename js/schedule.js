@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 💡 2つのCSVを同時に読み込む
     Promise.all([
-        fetchCSV('data/transports.csv'),
-        fetchCSV('data/events.csv')
+        fetchCSV('../csv/transports.csv'),
+        fetchCSV('../csv/events.csv')
     ])
         .then(([transportData, eventData]) => {
             // 今の日付のデータだけに絞り込む
@@ -47,15 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     // CSVに登録されたルートをクラスに付与（例: route-a route-b）
                     transportCard.className = `card ${row.route} card-transport`;
 
-                    // 移動手段に応じたアイコンを割り当て
-                    let icon = '🚶';
-                    if (row.transport === 'shinkansen' || row.transport === 'train') icon = '🚆';
-                    if (row.transport === 'bus') icon = '🚌';
-                    if (row.transport === 'taxi' || row.transport === 'car') icon = '🚕';
-
                     transportCard.innerHTML = `
                     <div class="card-content-transport">
-                        <span class="transport-icon">${icon}</span>
                         <div class="transport-info">
                             <span class="transport-title">${row.title}</span>
                             <span class="transport-duration">（${row.duration}）</span>
